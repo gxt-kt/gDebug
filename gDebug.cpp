@@ -1,13 +1,13 @@
 /**
- * @brief GXT-·¢ËÍÇı¶¯°ü
- * ÖØĞ´ÁËprintfº¯Êı--gDebug()
- * ÖØĞ´ÁËcout<<endl--gDebug()
- * ·½±ãÒÆÖ²£¬²»ºÍstm32°ó¶¨£¬Ìá¹©ÖØĞ´º¯Êı
+ * @brief GXT-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½Ğ´ï¿½ï¿½printfï¿½ï¿½ï¿½ï¿½--gDebug()
+ * ï¿½ï¿½Ğ´ï¿½ï¿½cout<<endl--gDebug()
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½stm32ï¿½ó¶¨£ï¿½ï¿½á¹©ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½
  * 
- * @note Ê¹ÓÃÇ°±ØĞë×öµÄ£º
- * ÓÉÓÚÊ¹ÓÃgDebug()×îÖÕ¶¼»áµ÷ÓÃgDebugSendString(Èõ¶¨Òå)·¢ËÍ£¬ËùÒÔÎÒÃÇĞèÒª
- * ÖØĞ´º¯Êı void gDebugSendString(const char *str, int num)
- * Àı£º
+ * @note Ê¹ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½
+ * ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½gDebug()ï¿½ï¿½ï¿½Õ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½gDebugSendString(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òª
+ * ï¿½ï¿½Ğ´ï¿½ï¿½ï¿½ï¿½ void gDebugSendString(const char *str, int num)
+ * ï¿½ï¿½ï¿½ï¿½
  * void gDebugSendString(const char *str, int num)
  * {
  *      // C/C++
@@ -15,14 +15,14 @@
  *      printf("%.*s", num, str);
  *
  *      // stm32
- *      CDC_Transmit_FS((uint8_t*)str,num); // µ÷ÓÃ USB CDCº¯Êı·¢ËÍÊı¾İ
- *      HAL_UART_Transmit(&huart1,(uint8_t *)str,num,0xFFFF);//hal¿â·¢ËÍÊı¾İ
+ *      CDC_Transmit_FS((uint8_t*)str,num); // ï¿½ï¿½ï¿½ï¿½ USB CDCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *      HAL_UART_Transmit(&huart1,(uint8_t *)str,num,0xFFFF);//halï¿½â·¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  *      // Arduino
  *      Serial.write(str,num);
  * }
  * 
- * @note Ê¹ÓÃÊ¾Àı
+ * @note Ê¹ï¿½ï¿½Ê¾ï¿½ï¿½
  * void loop()
  * {
  *      gDebug("hello world\n");
@@ -30,8 +30,8 @@
  *      delay(500);
  * }
  * 
- * @note ¶îÍâµÄ£º
- * µ±ÎÒÃÇÏëÒª½ûÓÃdebugÊ±£¬¿ÉÒÔ¶¨ÒåºêG_NO_DEBUG_OUTPUT
+ * @note ï¿½ï¿½ï¿½ï¿½Ä£ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½debugÊ±ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½G_NO_DEBUG_OUTPUT
  */
 
 
@@ -44,7 +44,7 @@
 
 // user to change begin
 __attribute__((weak)) void gDebugSendString(const char *str, int num) {
-  //printf("%.*s", num, str);
+  printf("%.*s", num, str);
 }
 // user to change end
 
@@ -53,30 +53,30 @@ __attribute__((weak)) void gDebugSendString(const char *str, int num) {
 //====================
 
 
-static char _gDebugBuf[256] = {0};//·¢ËÍ»º³åÇø
+static char _gDebugBuf[256] = {0};//ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 void gDebug(const char *fmt, ...) {
-#ifdef G_NO_DEBUG_OUTPUT //ÊÇ·ñ½ûÓÃµ÷ÊÔ¹¦ÄÜ
+#ifdef G_NO_DEBUG_OUTPUT //ï¿½Ç·ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ô¹ï¿½ï¿½ï¿½
   return;
 #endif // G_NO_DEBUG_OUTPUT
   va_list ap;
   va_start(ap, fmt);
   vsprintf((char *) _gDebugBuf, fmt, ap);
   va_end(ap);
-  uint16_t i = strlen((const char *) _gDebugBuf); //´Ë´Î·¢ËÍÊı¾İµÄ³¤¶È
+  uint16_t i = strlen((const char *) _gDebugBuf); //ï¿½Ë´Î·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İµÄ³ï¿½ï¿½ï¿½
   gDebugSendString(_gDebugBuf, i);
 }
 
-/**********C++°æ±¾£¬ÖØÔØ/<<°æ±¾**************************************************************************************/
+/**********C++ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/<<ï¿½æ±¾**************************************************************************************/
 #if G_DEBUG_CPP_EN
-static gxtCout gcout = {};//ÊµÏÖ×Ô¼ºµÄcout
-struct gxtEndl {} endl;//¶¨Òå½á¹¹Ìå£¬ÊµÏÖ¶ÔÓÚendlÌØÊâÊ¶±ğ
-gxtCout &gDebug(void)//º¯ÊıÖØÔØ
+static gxtCout gcout = {};//Êµï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½cout
+struct gxtEndl {} endl;//ï¿½ï¿½ï¿½ï¿½á¹¹ï¿½å£¬Êµï¿½Ö¶ï¿½ï¿½ï¿½endlï¿½ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½
+gxtCout &gDebug(void)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
   return gcout;
 }
-//***********ÖØÔØ*************
+//***********ï¿½ï¿½ï¿½ï¿½*************
 // void gDebug(std::string &str){
 //     gDebug("%s", str.c_str());
 // }

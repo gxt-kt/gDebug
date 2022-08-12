@@ -28,6 +28,10 @@ class gxtCout               //实现<<运算符重载
     gDebug("%s", str.c_str());
     return *this;
   }
+  gxtCout &operator<<(std::string str) {
+    gDebug("%s", str.c_str());
+    return *this;
+  }
   gxtCout &operator<<(char c) {
     gDebug("%c", c);
     return *this;
