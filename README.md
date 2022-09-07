@@ -1,3 +1,6 @@
+# This repository has been abandoned.
+# Please see the new version v2.0 https://github.com/gxt-kt/gDebugV2.0
+***
 # gDebug
 write a debug lib to replace the self-contained printf/cout
 
